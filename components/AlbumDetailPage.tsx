@@ -195,7 +195,7 @@ const AlbumDetailPage: React.FC<AlbumDetailPageProps> = ({ album, testimonials, 
 
            const handler = ePayco.checkout.configure({
               key: EPAYCO_PUBLIC_KEY,
-              test: true
+              test: false
            });
 
            const data = {
