@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIK MUSIC - La Fábrica de Estrellas</title>
+  <meta name="description" content="The official website for MIK MUSIC, an independent record label. Discover our services, buy beats, and explore our artists. Inspired by artistic and modern music labels.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- ePayco Checkout Script -->
+  <script type="text/javascript" src="https://checkout.epayco.co/checkout.js"></script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script type="importmap">
+  {
+    "imports": {
+      "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+      "react/": "https://aistudiocdn.com/react@^19.2.0/",
+      "react": "https://aistudiocdn.com/react@^19.2.0",
+      "contentful": "https://aistudiocdn.com/contentful@^11.8.11"
+    }
+  }
+  </script>
+  
+  <style>
+    /* Custom CSS Styles */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Custom Fonts */
+    .font-anton { font-family: 'Anton', sans-serif; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+
+    /* Custom Neon Glow Effects */
+    @layer utilities {
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.10);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 5px rgba(0,0,0,0.5);
+      }
+      .text-shadow-lavender {
+        text-shadow: 0 0 8px rgba(209, 210, 237, 0.8), 0 0 12px rgba(209, 210, 237, 0.5);
+      }
+      .neon-glow-yellow { box-shadow: 0 0 5px theme('colors.mikai-lemon'), 0 0 20px theme('colors.mikai-lemon'); }
+      .neon-glow-violet { box-shadow: 0 0 5px theme('colors.violet.400'), 0 0 20px theme('colors.violet.500'); }
+      .neon-glow-cyan { box-shadow: 0 0 5px theme('colors.cyan.300'), 0 0 20px theme('colors.cyan.400'); }
+      .neon-glow-red { box-shadow: 0 0 5px theme('colors.red.400'), 0 0 20px theme('colors.red.500'); }
+      .neon-glow-green { box-shadow: 0 0 5px theme('colors.green.400'), 0 0 20px theme('colors.green.500'); }
+      .neon-glow-blue { box-shadow: 0 0 5px theme('colors.blue.400'), 0 0 20px theme('colors.blue.500'); }
+      .neon-glow-orange { box-shadow: 0 0 5px theme('colors.orange.400'), 0 0 20px theme('colors.orange.500'); }
+      .neon-glow-mikai-red { box-shadow: 0 0 5px #ff0033, 0 0 20px #ff0033; }
+    }
+    
+    /* Tailwind Config */
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mikai-red': '#ff0033',
+            'mikai-dark-gray': '#111111',
+            'mikai-lemon': '#fefe79',
+            'mikai-lavender-light': '#c5c6e1',
+            'mikai-gold': '#e6ce9e',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            anton: ['Anton', 'sans-serif'],
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+            'glitch': 'glitch 1.5s linear infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(0.8)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.2)' },
+            },
+             glitch: {
+              '2%, 64%': { transform: 'translate(2px, -2px) skew(0.5deg)' },
+              '4%, 60%': { transform: 'translate(-2px, 2px) skew(0.5deg)' },
+              '62%': { transform: 'translate(0, 0) skew(0)' },
+            },
+          }
+        }
+      }
+    }
+    
+    /* MIKAI Universe Page Styles */
+    #cursor-follower {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background-color: rgba(255, 0, 51, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s;
+      z-index: 9999;
+      filter: blur(10px);
+    }
+    
+    .animation-delay-300 { animation-delay: 300ms; }
+    .animation-delay-500 { animation-delay: 500ms; }
+    .animation-delay-700 { animation-delay: 700ms; }
+
+  </style>
+</head>
+<body class="bg-black">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
